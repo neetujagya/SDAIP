@@ -3,7 +3,7 @@ package com.novare.sdaip.entity;
 import java.util.List;
 import java.util.Objects;
 
-public class Project {
+public class Project implements Comparable<Project> {
     private int projectId;
     private String name;
     private List<Task> tasks;
@@ -40,6 +40,17 @@ public class Project {
     @Override
     public int hashCode() {
         return Objects.hash(projectId);
+    }
+
+    @Override
+    public int compareTo(Project project) {
+        if(this.projectId == project.getProjectId()) {
+            return 0;
+        } else if(this.projectId >  project.getProjectId()) {
+            return 1;
+        } else {
+            return -1;
+        }
     }
 }
 

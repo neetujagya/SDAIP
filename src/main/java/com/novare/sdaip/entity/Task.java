@@ -14,7 +14,7 @@ public class Task {
     private String title;
     private Date dueDate;
     private TaskStatus status;
-    private Project project;
+
     private int taskId;
     /**
      * It is a default constructor.
@@ -22,11 +22,10 @@ public class Task {
     public Task() {
     }
 
-    public Task(String title, Date dueDate, TaskStatus status, Project project, int taskId) {
+    public Task(String title, Date dueDate, TaskStatus status, int taskId) {
         this.title = title;
         this.dueDate = dueDate;
         this.status = status;
-        this.project = project;
         this.taskId = taskId;
     }
 
@@ -42,10 +41,6 @@ public class Task {
 
     public TaskStatus getStatus() {
         return status;
-    }
-
-    public Project getProject() {
-        return project;
     }
 
     public int getTaskId() {
