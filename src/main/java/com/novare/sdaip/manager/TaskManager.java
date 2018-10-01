@@ -28,12 +28,15 @@ public interface TaskManager {
 
     /**
      * Get all tasks
+     *
+     * @return list of {@link List<Task>}
      */
     List<Task> getAllTask();
 
     /**
      * Get all projects.
-     * @return
+     *
+     * @return collection of {@link Collection<Project>}
      */
     Collection<Project> getAllProjects();
 

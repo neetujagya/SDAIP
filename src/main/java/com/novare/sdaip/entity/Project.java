@@ -29,18 +29,6 @@ public class Project implements Comparable<Project> {
         return tasks;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Project project = (Project) o;
-        return projectId == project.projectId;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(projectId);
-    }
 
     @Override
     public int compareTo(Project project) {

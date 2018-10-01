@@ -12,7 +12,9 @@ import java.util.Scanner;
 
 import static com.novare.sdaip.constant.Constants.*;
 
-
+/**
+ * TODO: Add Java doc
+ */
 public class UserInterfaceImpl implements UserInterface {
 
     private ValidationManager validationManager;
@@ -29,7 +31,7 @@ public class UserInterfaceImpl implements UserInterface {
         while (userChoice != 4) {
             startInterface();
             Scanner in = new Scanner(System.in);
-            userChoice = validationManager.validateUserInput(in.nextLine());
+            userChoice = validationManager.validateFirstMenuUserInput(in.nextLine());
             handleUserChoice(userChoice);
 
         }
@@ -48,9 +50,23 @@ public class UserInterfaceImpl implements UserInterface {
 
     private void handleUserChoice(int userChoice) {
         switch (userChoice) {
+            case 1:
+               showTasks();
+               break;
             case 2:
                 addNewTask();
                 break;
+        }
+    }
+
+    private void showTasks() {
+        boolean areTasksPrinted = false;
+        while (!areTasksPrinted) {
+            System.out.println(PRINT_TASK);
+            Scanner scanner = new Scanner(System.in);
+            String userInput = scanner.nextLine();
+            validationManager.validateShowTaskUserInput(userInput);
+
         }
     }
 
@@ -62,7 +78,7 @@ public class UserInterfaceImpl implements UserInterface {
             System.out.println(SELECT_PROJECT);
             projects.stream().sorted().forEach(project -> System.out.println("(" + project.getProjectId() + ") "+ project.getName()));
             Scanner scanner = new Scanner(System.in);
-            int projectId = Integer.parseInt(scanner.nextLine());
+            int projectId = Integer.parseInt(scanner.nextLine());//ToDo validate this input
             System.out.println(ENTER_TITLE);
             String title = scanner.nextLine();
             Date dueDate = null;
@@ -72,7 +88,9 @@ public class UserInterfaceImpl implements UserInterface {
                 dueDate = validationManager.validateAndReturnDate(dateInput, DD_MM_YYYY);
             }
             isTaskAdded = taskManager.addTask(projectId, title, dueDate);
-            System.out.println(TASK_SUCCESS);
+            if(isTaskAdded) {
+                System.out.println(TASK_SUCCESS);
+            }
         }
 
     }

@@ -2,6 +2,9 @@ package com.novare.sdaip.validation;
 
 import java.util.Date;
 
+/**
+ * TODO Add JAvadoc
+ */
 public interface ValidationManager {
 
     /**
@@ -11,7 +14,7 @@ public interface ValidationManager {
      * @param userInput entered by the user
      * @return valid input and print message if the data is wrong.
      */
-    int validateUserInput(String userInput);
+    int validateFirstMenuUserInput(String userInput);
 
     /**
      * Validates and return the user date according to the format.
@@ -21,4 +24,14 @@ public interface ValidationManager {
      * @return Return valid Date, if it is invalid then tell user to enter again until date is valid
      */
     Date validateAndReturnDate(String date, String format);
+
+    /**
+     * Validate if user is giving a valid input for show task option.
+     * It should be a number and should be 1 or 2.
+     *
+     * @param userInput
+     * @return
+     */
+    int validateShowTaskUserInput(String userInput);
+
 }

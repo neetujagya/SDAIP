@@ -14,7 +14,7 @@ public final class ValidationManagerImpl implements ValidationManager {
     public static final String ENTER_A_PROPER_DATE = "Date is invalid, please enter a proper date as ";
 
     @Override
-    public int validateUserInput(String userInput) {
+    public int validateFirstMenuUserInput(String userInput) {
         try {
             int input =  Integer.parseInt(userInput);
             if( input < 1 || input > 4) {
@@ -37,5 +37,19 @@ public final class ValidationManagerImpl implements ValidationManager {
             return null;
         }
 
+    }
+
+    @Override
+    public int validateShowTaskUserInput(String userInput) {
+        try {
+            int input =  Integer.parseInt(userInput);
+            if( input < 1 || input > 2) {
+                System.out.println(WRONG_INPUT_SHOW_TASK);
+            }
+            return input;
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println(WRONG_INPUT_SHOW_TASK);
+            return -1;
+        }
     }
 }
