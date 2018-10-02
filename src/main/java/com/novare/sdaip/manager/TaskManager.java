@@ -1,44 +1,34 @@
 package com.novare.sdaip.manager;
 
-import com.novare.sdaip.entity.Project;
 import com.novare.sdaip.entity.Task;
+import com.novare.sdaip.entity.TaskStatus;
+import com.novare.sdaip.store.TaskStore;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Task manager to do all the task related operations like adding a new task, fetching task list etc.
- *
- * @author Neetu Jagya
- * @version 1.0
- */
-public interface TaskManager {
+public class TaskManager {
 
-    /**
-     * Add task in the system.
-     *
-     * @param projectId to which task need to be added
-     * @param title of the task
-     * @param dueDate of the task
-     *
-     * @return flag if task is added or not
-     */
-    boolean addTask(int projectId, String title, Date dueDate);
+    private static int counter = 1;
 
-    /**
-     * Get all tasks
-     *
-     * @return list of {@link List<Task>}
-     */
-    List<Task> getAllTask();
+    private final TaskStore taskStore;
 
-    /**
-     * Get all projects.
-     *
-     * @return collection of {@link Collection<Project>}
-     */
-    Collection<Project> getAllProjects();
+    public TaskManager() {
+        this.taskStore = new TaskStore();
+    }
 
+
+    public void addTask(String project, String title, Date dueDate) {
+        Task task = new Task(title, dueDate, TaskStatus.NEW,project);
+         taskStore.addTask(task);
+
+    }
+
+
+    public ArrayList<Task> getAllTask() {
+        return taskStore.getTasks();
+    }
 
 }

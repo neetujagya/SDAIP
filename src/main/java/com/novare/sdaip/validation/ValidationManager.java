@@ -1,37 +1,56 @@
 package com.novare.sdaip.validation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.novare.sdaip.constant.Constants.*;
+
 /**
- * TODO Add JAvadoc
+ * Class to validate all the user inputs
  */
-public interface ValidationManager {
+public final class ValidationManager {
 
-    /**
-     * Validate if user is giving a valid choice.
-     * It should be a number and in the range 1-4.
-     *
-     * @param userInput entered by the user
-     * @return valid input and print message if the data is wrong.
-     */
-    int validateFirstMenuUserInput(String userInput);
+    public static final String ENTER_A_PROPER_DATE = "Date is invalid, please enter a proper date as ";
 
-    /**
-     * Validates and return the user date according to the format.
-     *
-     * @param date entered by the user
-     * @param format of the date
-     * @return Return valid Date, if it is invalid then tell user to enter again until date is valid
-     */
-    Date validateAndReturnDate(String date, String format);
 
-    /**
-     * Validate if user is giving a valid input for show task option.
-     * It should be a number and should be 1 or 2.
-     *
-     * @param userInput
-     * @return
-     */
-    int validateShowTaskUserInput(String userInput);
+    public int validateFirstMenuUserInput(String userInput) {
+        try {
+            int input =  Integer.parseInt(userInput);
+            if( input < 1 || input > 4) {
+                System.out.println(WRONG_INPUT);
+            }
+            return input;
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println(WRONG_INPUT);
+            return -1;
+        }
+    }
 
+
+    public Date validateAndReturnDate(String date, String format) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(format);
+        try {
+            return dateFormat.parse(date);
+        } catch (ParseException parseException) {
+            System.out.println(ENTER_A_PROPER_DATE + format);
+            return null;
+        }
+
+    }
+
+
+    public int validateShowTaskUserInput(String userInput) {
+        try {
+            int input =  Integer.parseInt(userInput);
+            if( input < 1 || input > 2) {
+                System.out.println(WRONG_INPUT_SHOW_TASK);
+                return -1;
+            }
+            return input;
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println(WRONG_INPUT_SHOW_TASK);
+            return -1;
+        }
+    }
 }

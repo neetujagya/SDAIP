@@ -19,12 +19,14 @@ public final class Constants {
     public static final String WRONG_INPUT  = "Wrong Input. Please enter a proper choice (1-4)";
 
     public static final String TITLE_CREATION = "\n######### Adding new task #########";
-    public static final String SELECT_PROJECT = "Please select project for which you want to create a task";
+    public static final String ENTER_PROJECT = "Please enter a project";
     public static final String ENTER_TITLE = "Please enter title :";
     public static final String DD_MM_YYYY = "DD-MM-YYYY";
     public static final String ENTER_DUE_DATE = "Please enter due date in DD-MM-YYYY : ";
     public static final String TASK_SUCCESS = "Task is added successfully \n";
 
-    public static final String PRINT_TASK = "Please choose: \n (1) To show project by date \n (2) To show project by due date  ";
+    public static final String PRINT_TASK = "Please choose: \n (1) To sort task by date \n (2) To filter task by project";
     public static final String WRONG_INPUT_SHOW_TASK  = "Wrong Input. Please enter a proper choice (1-2)";
+    public static final String NO_TASK_MESSAGE  = "There is no task to display. \n";
 }
+
