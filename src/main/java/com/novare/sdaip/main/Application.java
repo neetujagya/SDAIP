@@ -1,7 +1,6 @@
 package com.novare.sdaip.main;
 
 import com.novare.sdaip.ui.UserInterface;
-import com.novare.sdaip.ui.UserInterfaceImpl;
 
 /**
  * Class to initialize the application.
@@ -18,7 +17,7 @@ public class Application {
      * @param st arguments passed
      */
     public static void main(String[] st) {
-        UserInterface userInterface = new UserInterfaceImpl();
+        UserInterface userInterface = new UserInterface();
         userInterface.start();
 
     }
