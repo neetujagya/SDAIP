@@ -4,10 +4,8 @@ import com.novare.sdaip.entity.Task;
 import com.novare.sdaip.manager.TaskManager;
 import com.novare.sdaip.validation.ValidationManager;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Stream;
 
 import static com.novare.sdaip.constant.Constants.*;
 
@@ -68,21 +66,42 @@ public class UserInterface {
             int input = validationManager.validateShowTaskUserInput(userInput);
             if (input != -1) {
                 if (input == 1){
-                    ArrayList<Task> tasks = taskManager.getAllTask();
-                    if (tasks.isEmpty()) {
-                        System.out.println(NO_TASK_MESSAGE);
-                    } else {
-                        tasks.stream()
-                                .sorted((o1, o2) -> o1.getDueDate().compareTo(o2.getDueDate()))
-                                .forEach(System.out::println);
+                    sortAndPrintTasks();
 
-                    }
-                    areTasksPrinted = true;
+                } else if (input == 2) {
+                    filterAndPrintTasks(scanner);
+
                 }
-
+                areTasksPrinted = true;
             }
+        }
+    }
 
+    private void filterAndPrintTasks(Scanner scanner) {
+        System.out.println(FILTER_PROJECT);
+        String projectName = scanner.nextLine();
+        List<Task> tasks = taskManager.getAllTask();
+        if (tasks.isEmpty()) {
+            System.out.println(NO_TASK_MESSAGE);
+        } else {
+            Object[] taskArray = tasks.stream()
+                    .filter(task -> task.getProject().contains(projectName)).toArray();
+            if(taskArray.length == 0){
+                System.out.println(NO_TASK_FOUND_FOR_PROJECT + projectName);
+            } else {
+                Stream.of(taskArray).forEach(System.out::println);
+            }
+        }
+    }
 
+    private void sortAndPrintTasks() {
+        ArrayList<Task> tasks = taskManager.getAllTask();
+        if (tasks.isEmpty()) {
+            System.out.println(NO_TASK_MESSAGE);
+        } else {
+            tasks.stream()
+                    .sorted((task1, task2) -> task1.getDueDate().compareTo(task2.getDueDate()))
+                    .forEach(System.out::println);
         }
     }
 
@@ -109,6 +128,4 @@ public class UserInterface {
         }
 
     }
-
-
 }

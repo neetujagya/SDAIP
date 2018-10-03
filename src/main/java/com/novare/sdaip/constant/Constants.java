@@ -28,5 +28,7 @@ public final class Constants {
     public static final String PRINT_TASK = "Please choose: \n (1) To sort task by date \n (2) To filter task by project";
     public static final String WRONG_INPUT_SHOW_TASK  = "Wrong Input. Please enter a proper choice (1-2)";
     public static final String NO_TASK_MESSAGE  = "There is no task to display. \n";
+    public static final String FILTER_PROJECT = "Please enter project name on which you want to filter";
+    public static final String NO_TASK_FOUND_FOR_PROJECT = "No task found for project : ";
 }
 
