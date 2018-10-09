@@ -47,4 +47,20 @@ public class Task {
     }
 
     public String getProject() { return  project; }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDueDate(Date dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
+    }
 }

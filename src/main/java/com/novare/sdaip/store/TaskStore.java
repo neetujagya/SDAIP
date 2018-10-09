@@ -15,7 +15,18 @@ public class TaskStore {
 
     public void addTask(Task task) {
         tasks.add(task);
+    }
 
+    public void removeTask(int index) {
+        tasks.remove(index);
+    }
+
+    public void updateTask(Task task, int index) {
+        tasks.set(index, task);
+    }
+
+    public Task getAtIndex(int index) {
+        return tasks.get(index);
     }
 
     public ArrayList<Task> getTasks() {

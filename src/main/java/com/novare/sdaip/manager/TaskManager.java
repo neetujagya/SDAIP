@@ -11,8 +11,6 @@ import java.util.List;
 
 public class TaskManager {
 
-    private static int counter = 1;
-
     private final TaskStore taskStore;
 
     public TaskManager() {
@@ -24,6 +22,21 @@ public class TaskManager {
         Task task = new Task(title, dueDate, TaskStatus.NEW,project);
          taskStore.addTask(task);
 
+    }
+
+    public void updateTask(int id, String project, String title, Date dueDate) {
+        Task task = new Task(title, dueDate, TaskStatus.NEW, project);
+        taskStore.updateTask(task, id);
+    }
+
+    public void removeTask(int index) {
+        taskStore.removeTask(index);
+    }
+
+    public void markAsDone(int index) {
+        Task task = taskStore.getAtIndex(index);
+        task.setStatus(TaskStatus.FINISHED);
+        taskStore.updateTask(task, index);
     }
 
 
