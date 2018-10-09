@@ -18,17 +18,31 @@ public final class Constants {
     public static final String SAVE_AND_QUIT = "(4) Save and Quit";
     public static final String WRONG_INPUT  = "Wrong Input. Please enter a proper choice (1-4)";
 
-    public static final String TITLE_CREATION = "\n######### Adding new task #########";
+    public static final String TITLE_CREATION_MSG = "\n######### Adding new task #########";
+    public static final String TITLE_UPDATE_MSG = "\n######### Updating task #########";
     public static final String ENTER_PROJECT = "Please enter a project";
     public static final String ENTER_TITLE = "Please enter title :";
     public static final String DD_MM_YYYY = "DD-MM-YYYY";
     public static final String ENTER_DUE_DATE = "Please enter due date in DD-MM-YYYY : ";
-    public static final String TASK_SUCCESS = "Task is added successfully \n";
+    public static final String TASK_ADDED_SUCCESS_MSG = "Task is added successfully \n";
+    public static final String TASK_UPDATE_SUCCESS_MSG = "Task is updated successfully \n";
 
     public static final String PRINT_TASK = "Please choose: \n (1) To sort task by date \n (2) To filter task by project";
     public static final String WRONG_INPUT_SHOW_TASK  = "Wrong Input. Please enter a proper choice (1-2)";
     public static final String NO_TASK_MESSAGE  = "There is no task to display. \n";
     public static final String FILTER_PROJECT = "Please enter project name on which you want to filter";
     public static final String NO_TASK_FOUND_FOR_PROJECT = "No task found for project : ";
+
+
+    public static final String TASK_ID_TO_EDIT = "Please enter task id to edit:";
+    public static final String LIST_OF_YOUR_TASKS = "Here is a list of your tasks";
+    public static final String VALID_NUMBER_OF_LIST = "Please enter a valid number from 1 to ";
+    public static final String YOU_HAVE_SELECTED_TASK = "You have selected task : ";
+    public static final String PLEASE_CHOOSE_AN_OPTION = "Please choose an option:";
+    public static final String UPDATE_TASK = "(1) Update";
+    public static final String MARK_AS_DONE_TASK = "(2) Mark as done";
+    public static final String REMOVE_TASK = "(3) Remove";
+    public static final String ENTER_A_VALID_CHOICE_EDIT_TASK = "Please enter a valid choice (1-3)";
+    public static final String ENTER_A_PROPER_DATE = "Date is invalid, please enter a proper date as ";
 }
 

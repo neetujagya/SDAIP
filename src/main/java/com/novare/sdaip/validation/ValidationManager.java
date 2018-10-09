@@ -11,9 +11,6 @@ import static com.novare.sdaip.constant.Constants.*;
  */
 public final class ValidationManager {
 
-    public static final String ENTER_A_PROPER_DATE = "Date is invalid, please enter a proper date as ";
-
-
     public int validateFirstMenuUserInput(String userInput) {
         try {
             int input =  Integer.parseInt(userInput);
@@ -50,6 +47,35 @@ public final class ValidationManager {
             return input;
         } catch (NumberFormatException numberFormatException) {
             System.out.println(WRONG_INPUT_SHOW_TASK);
+            return -1;
+        }
+    }
+
+    public int validateTaskIdAndReturnIndex(String choice, int listSize) {
+        try {
+            int input = Integer.parseInt(choice);
+            if(input < 1 && input > listSize) {
+                System.out.println(VALID_NUMBER_OF_LIST + listSize );
+                return -1;
+            }
+            return input - 1;
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println(VALID_NUMBER_OF_LIST + listSize );
+            return -1;
+        }
+
+    }
+
+    public int validateEditOperationAndReturnChoice(String choice) {
+        try {
+            int input = Integer.parseInt(choice);
+            if(input < 1 && input > 3) {
+                System.out.println(ENTER_A_VALID_CHOICE_EDIT_TASK);
+                return -1;
+            }
+            return input;
+        } catch (NumberFormatException numberFormatException) {
+            System.out.println(ENTER_A_VALID_CHOICE_EDIT_TASK);
             return -1;
         }
     }
