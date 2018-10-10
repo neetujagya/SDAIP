@@ -44,5 +44,7 @@ public final class Constants {
     public static final String REMOVE_TASK = "(3) Remove";
     public static final String ENTER_A_VALID_CHOICE_EDIT_TASK = "Please enter a valid choice (1-3)";
     public static final String ENTER_A_PROPER_DATE = "Date is invalid, please enter a proper date as ";
+    public static final String NO_SAVED_TASKS_WERE_FOUND = "No saved tasks were found.\n";
+    public static final String ERROR_OCCURRED_WHILE_RECOVERING_TASKS = "Error occurred while recovering tasks";
 }
 

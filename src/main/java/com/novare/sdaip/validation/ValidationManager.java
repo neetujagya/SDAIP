@@ -54,7 +54,7 @@ public final class ValidationManager {
     public int validateTaskIdAndReturnIndex(String choice, int listSize) {
         try {
             int input = Integer.parseInt(choice);
-            if(input < 1 && input > listSize) {
+            if(input < 1 || input > listSize) {
                 System.out.println(VALID_NUMBER_OF_LIST + listSize );
                 return -1;
             }

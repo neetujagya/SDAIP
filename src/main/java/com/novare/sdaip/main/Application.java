@@ -1,5 +1,7 @@
 package com.novare.sdaip.main;
 
+import com.novare.sdaip.entity.TaskStatus;
+import com.novare.sdaip.store.TaskStore;
 import com.novare.sdaip.ui.UserInterface;
 
 /**
@@ -17,6 +19,7 @@ public class Application {
      * @param st arguments passed
      */
     public static void main(String[] st) {
+        TaskStore.initializeTasks();
         UserInterface userInterface = new UserInterface();
         userInterface.start();
 
