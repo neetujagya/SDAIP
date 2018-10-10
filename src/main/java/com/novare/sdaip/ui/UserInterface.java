@@ -38,7 +38,7 @@ public class UserInterface {
 
     private void startInterface() {
         System.out.println(WELCOME_MESSAGE);
-        System.out.println(TASK_MESSAGE); //TODO: Replace number of task todo and done
+        System.out.println(taskManager.getDoneAndNewMessage());
         System.out.println(PICK_MESSAGE);
         System.out.println(SHOW_TASK_LIST);
         System.out.println(ADD_NEW_TASK);
@@ -58,8 +58,15 @@ public class UserInterface {
             case 3:
                 editTask(scanner);
                 break;
+            case 4:
+                saveAndQuit();
+                break;
 
         }
+    }
+
+    private void saveAndQuit() {
+        taskManager.saveAndQuit();
     }
 
     private void editTask(final Scanner scanner) {
@@ -67,9 +74,8 @@ public class UserInterface {
         while (!isTaskEdited) {
             System.out.println(LIST_OF_YOUR_TASKS);
             List<Task> tasks = taskManager.getAllTask();
-            for(int i = 0; i < tasks.size(); i++) {
-                System.out.println("("+ (i+1)+ ") " + tasks.get(i).toString());
-            }
+            tasks.forEach(System.out::println);
+
             System.out.println(TASK_ID_TO_EDIT);
             String choice = scanner.nextLine();
             int index = validationManager.validateTaskIdAndReturnIndex(choice, tasks.size());

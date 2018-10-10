@@ -1,5 +1,6 @@
 package com.novare.sdaip.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
@@ -10,17 +11,19 @@ import java.util.Objects;
  * @author Neetu Jagya
  * @version 1.0
  */
-public class Task {
+public class Task implements Serializable {
 
     private String title;
     private Date dueDate;
     private TaskStatus status;
     private String project;
+    private int id;
 
     @Override
     public String toString() {
         return "Task{" +
-                "title='" + title + '\'' +
+                "id='" + id + '\'' +
+                ",title='" + title + '\'' +
                 ", dueDate=" + dueDate +
                 ", status=" + status +
                 ", project='" + project + '\'' +
@@ -62,5 +65,13 @@ public class Task {
 
     public void setProject(String project) {
         this.project = project;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -9,6 +9,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import static com.novare.sdaip.constant.Constants.TASK_MESSAGE;
+
 public class TaskManager {
 
     private final TaskStore taskStore;
@@ -42,6 +44,23 @@ public class TaskManager {
 
     public ArrayList<Task> getAllTask() {
         return taskStore.getTasks();
+    }
+
+    public void saveAndQuit() {
+        taskStore.saveAndQuit();
+    }
+
+    public String getDoneAndNewMessage() {
+        int noOfNewTask = 0;
+        int noOfDoneTask = 0;
+        for (Task task : taskStore.getTasks()) {
+            if(TaskStatus.NEW.equals(task.getStatus())) {
+                noOfNewTask++;
+            } else {
+                noOfDoneTask++;
+            }
+        }
+        return String.format(TASK_MESSAGE, noOfNewTask, noOfDoneTask);
     }
 
 }
