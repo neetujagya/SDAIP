@@ -27,6 +27,9 @@ public class TaskStore {
 
     public void removeTask(int index) {
         tasks.remove(index);
+        for(int i = index; i< tasks.size(); i++) {
+            tasks.get(i).setId(i+1);
+        }
     }
 
     public void removeAll() {
