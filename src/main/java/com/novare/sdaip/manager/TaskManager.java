@@ -5,9 +5,7 @@ import com.novare.sdaip.entity.TaskStatus;
 import com.novare.sdaip.store.TaskStore;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 import static com.novare.sdaip.constant.Constants.TASK_MESSAGE;
 
@@ -21,8 +19,8 @@ public class TaskManager {
 
 
     public void addTask(String project, String title, Date dueDate) {
-        Task task = new Task(title, dueDate, TaskStatus.NEW,project);
-         taskStore.addTask(task);
+        Task task = new Task(title, dueDate, TaskStatus.NEW, project);
+        taskStore.addTask(task);
 
     }
 
@@ -47,14 +45,14 @@ public class TaskManager {
     }
 
     public void saveAndQuit() {
-        taskStore.saveAndQuit();
+        taskStore.saveAndQuit("tasks.ser");
     }
 
     public String getDoneAndNewMessage() {
         int noOfNewTask = 0;
         int noOfDoneTask = 0;
         for (Task task : taskStore.getTasks()) {
-            if(TaskStatus.NEW.equals(task.getStatus())) {
+            if (TaskStatus.NEW.equals(task.getStatus())) {
                 noOfNewTask++;
             } else {
                 noOfDoneTask++;

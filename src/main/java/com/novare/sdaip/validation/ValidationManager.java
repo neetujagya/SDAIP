@@ -28,7 +28,14 @@ public final class ValidationManager {
     public Date validateAndReturnDate(String date, String format) {
         SimpleDateFormat dateFormat = new SimpleDateFormat(format);
         try {
-            return dateFormat.parse(date);
+            Date inputDate =  dateFormat.parse(date);
+            Date currentDate = new Date();
+            Date futureDate = dateFormat.parse(FUTURE_VALID_DATE);
+            if(inputDate.before(currentDate) || inputDate.after(futureDate)) {
+                System.out.println(ENTER_A_VALID_DATE + format);
+                return null;
+            }
+            return inputDate;
         } catch (ParseException parseException) {
             System.out.println(ENTER_A_PROPER_DATE + format);
             return null;
