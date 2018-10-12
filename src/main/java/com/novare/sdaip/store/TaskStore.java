@@ -1,6 +1,7 @@
 package com.novare.sdaip.store;
 
 import com.novare.sdaip.entity.Task;
+import com.novare.sdaip.entity.TaskStatus;
 
 import java.io.*;
 import java.util.*;
@@ -18,6 +19,7 @@ public class TaskStore {
     }
 
 
+
     public void addTask(Task task) {
         task.setId(tasks.size() + 1);
         tasks.add(task);
@@ -25,6 +27,10 @@ public class TaskStore {
 
     public void removeTask(int index) {
         tasks.remove(index);
+    }
+
+    public void removeAll() {
+        tasks.clear();
     }
 
     public void updateTask(Task task, int index) {
@@ -39,9 +45,9 @@ public class TaskStore {
         return tasks;
     }
 
-    public void saveAndQuit() {
+    public void saveAndQuit(String fileName) {
         try {
-            FileOutputStream outputStream = new FileOutputStream("/tmp/tasks.ser");
+            FileOutputStream outputStream = new FileOutputStream("/tmp/"+ fileName);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(tasks);
             objectOutputStream.close();
@@ -53,9 +59,9 @@ public class TaskStore {
         }
     }
 
-    public static void initializeTasks() {
+    public static void initializeTasks(String fileName) {
         try {
-            FileInputStream fileInputStream = new FileInputStream("/tmp/tasks.ser");
+            FileInputStream fileInputStream = new FileInputStream("/tmp/" + fileName);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             tasks = (ArrayList<Task>) objectInputStream.readObject();
             objectInputStream.close();

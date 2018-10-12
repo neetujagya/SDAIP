@@ -22,7 +22,7 @@ public final class Constants {
     public static final String TITLE_UPDATE_MSG = "\n######### Updating task #########";
     public static final String ENTER_PROJECT = "Please enter a project";
     public static final String ENTER_TITLE = "Please enter title :";
-    public static final String DD_MM_YYYY = "DD-MM-YYYY";
+    public static final String DD_MM_YYYY = "dd-MM-yyyy";
     public static final String ENTER_DUE_DATE = "Please enter due date in DD-MM-YYYY : ";
     public static final String TASK_ADDED_SUCCESS_MSG = "Task is added successfully \n";
     public static final String TASK_UPDATE_SUCCESS_MSG = "Task is updated successfully \n";
@@ -44,6 +44,8 @@ public final class Constants {
     public static final String REMOVE_TASK = "(3) Remove";
     public static final String ENTER_A_VALID_CHOICE_EDIT_TASK = "Please enter a valid choice (1-3)";
     public static final String ENTER_A_PROPER_DATE = "Date is invalid, please enter a proper date as ";
+    public static final String ENTER_A_VALID_DATE = "Date is before today's date or after 01-01-2025. Please enter a valid date as  ";
+    public static final String FUTURE_VALID_DATE = "01-01-2025";
     public static final String NO_SAVED_TASKS_WERE_FOUND = "No saved tasks were found.\n";
     public static final String ERROR_OCCURRED_WHILE_RECOVERING_TASKS = "Error occurred while recovering tasks";
 }

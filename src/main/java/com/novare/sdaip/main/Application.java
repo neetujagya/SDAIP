@@ -19,7 +19,7 @@ public class Application {
      * @param st arguments passed
      */
     public static void main(String[] st) {
-        TaskStore.initializeTasks();
+        TaskStore.initializeTasks("tasks.ser");
         UserInterface userInterface = new UserInterface();
         userInterface.start();
 
