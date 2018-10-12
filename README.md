@@ -1,8 +1,8 @@
 # SDAIP
 
-_Author Neetu Jagya_
-_Project version 1.0.0_
-_Java Version 9.0.4_
+_Author Neetu Jagya_. 
+_Project version 1.0.0_. 
+_Java Version 9.0.4_. 
 
 ## Summary:
 SDAIPis a project created by  with which you can do following
@@ -59,7 +59,7 @@ Task list will be displayed to be edited by selecting option 3 from the main men
 It will show the following content
 ```
 Here is a list of your tasks
-_All the tasks will be printed_
+All the tasks will be printed
 Please enter task id to edit:
  ```
 
@@ -81,7 +81,7 @@ Please enter due date in dd-MM-YYYY :
 Once the task has been updated successfully then it will display following message
 > Task is updated successfully
 
-If option (2) is selected then task will be marked as done.
+If option (2) is selected then task will be marked as done.  
 If option (3) is selected then task will be removed from the list.
 
 ## Saving and quitting task
